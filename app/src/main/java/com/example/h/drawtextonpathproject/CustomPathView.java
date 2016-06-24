@@ -3,7 +3,7 @@ package com.example.h.drawtextonpathproject;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.CornerPathEffect;
+import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
@@ -39,7 +39,13 @@ public class CustomPathView extends View {
         paint.setAntiAlias(true);
         paint.setColor(Color.RED);
         paint.setStrokeWidth(4);
-        paint.setPathEffect(new CornerPathEffect(50));//CornerPathEffect则可以将路径的转角变得圆滑，CornerPathEffect的构造方法只接受一个参数radius，意思就是转角处的圆滑程度。
+        // paint.setPathEffect(new CornerPathEffect(50));//CornerPathEffect则可以将路径的转角变得圆滑，CornerPathEffect的构造方法只接受一个参数radius，意思就是转角处的圆滑程度。
+         /*
+         * 它的效果相对与上面两种路径效果来说要略显复杂，其虽说也是包含了两个参数：
+
+第一个参数是一个浮点型的数组，那这个数组有什么意义呢？其实是这样的，我们在定义该参数的时候只要浮点型数组中元素个数大于等于2即可
+         */
+        paint.setPathEffect(new DashPathEffect(new float[]{20, 10}, 1));
         paths[0] = new Path();
         paths[0].moveTo(0, 0);
         for (int i = 0; i < DEFAULT_TEXT.length(); i++) {
