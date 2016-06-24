@@ -3,6 +3,7 @@ package com.example.h.drawtextonpathproject;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.CornerPathEffect;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
@@ -38,6 +39,7 @@ public class CustomPathView extends View {
         paint.setAntiAlias(true);
         paint.setColor(Color.RED);
         paint.setStrokeWidth(4);
+        paint.setPathEffect(new CornerPathEffect(50));//CornerPathEffect则可以将路径的转角变得圆滑，CornerPathEffect的构造方法只接受一个参数radius，意思就是转角处的圆滑程度。
         paths[0] = new Path();
         paths[0].moveTo(0, 0);
         for (int i = 0; i < DEFAULT_TEXT.length(); i++) {
@@ -68,7 +70,7 @@ public class CustomPathView extends View {
 
         //绘制文字
         paint.setStyle(Paint.Style.FILL);
-        canvas.drawTextOnPath(DEFAULT_TEXT, paths[0], -8, 10, paint);
+        canvas.drawTextOnPath(DEFAULT_TEXT, paths[0], -8, 20, paint);
         //下移
         canvas.translate(0, 150);
         //绘制路径
