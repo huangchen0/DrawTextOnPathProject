@@ -62,9 +62,9 @@ public class CustomPathView extends View {
         paint.setTextAlign(Paint.Align.RIGHT);
         paint.setTextSize(40);
 
-      /*  //绘制路径
+        //绘制路径
         paint.setStyle(Paint.Style.STROKE);
-        canvas.drawPath(paths[0], paint);*/
+        canvas.drawPath(paths[0], paint);
 
         //绘制文字
         paint.setStyle(Paint.Style.FILL);
